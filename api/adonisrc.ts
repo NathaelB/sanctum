@@ -1,6 +1,9 @@
 import { defineConfig } from '@adonisjs/core/app'
 
 export default defineConfig({
+  directories: {
+    config: './src/infrastructure/kernel/config',
+  },
   /*
   |--------------------------------------------------------------------------
   | Experimental flags
@@ -57,7 +60,7 @@ export default defineConfig({
   | List of modules to import before starting the application.
   |
   */
-  preloads: [() => import('#start/routes'), () => import('#start/kernel')],
+  preloads: [() => import('./src/infrastructure/kernel/http/routes.js'), () => import('./src/infrastructure/kernel/http/kernel.js')],
 
   /*
   |--------------------------------------------------------------------------
